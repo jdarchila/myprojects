@@ -1,5 +1,8 @@
-weight = float(input("What's the weight of your package? "))
-
+try:
+  weight = float(input("What's the weight of your package? "))
+except ValueError:
+    print("Error: Please enter a valid number for the weight.")
+    exit(1)  # Exits the program if the input is invalid
 print("")
 
 
