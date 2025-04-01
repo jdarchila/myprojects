@@ -8,3 +8,7 @@ for item in items_on_sale:
     break
 
 print("End of search!")
+
+
+print("--------------------------------------------------")
+
