@@ -91,10 +91,3 @@ print(get_work(1, 1, 1))
 print("==========")
 
 print("he GE train does ", train_force ," Joules of work over ", train_distance, "meters.")
-
-
-
-
-
-   
-
