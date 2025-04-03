@@ -20,7 +20,7 @@ print("")
 
 def combine_sort2(my_list11, my_list21):
   # Concatenate input lists
-  unsorted = my_list1 + my_list2
+  unsorted = my_list11 + my_list21
   # Sort the concatenated list
   sorted_list = sorted(unsorted)
   return sorted_list
