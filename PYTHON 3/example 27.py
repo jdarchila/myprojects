@@ -17,5 +17,9 @@ def always_false(num):
   else: 
     return False 
   
-print(always_false(10)) # False
-
+print(always_false(0))
+# should print False
+print(always_false(-1))
+# should print False
+print(always_false(1))
+# should print False
