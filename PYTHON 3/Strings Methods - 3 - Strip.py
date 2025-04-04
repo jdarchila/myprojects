@@ -19,5 +19,3 @@ print(love_maybe_lines_stripped)
 
 love_maybe_full = '\n'.join(love_maybe_lines_stripped)
 print(love_maybe_full)
-#The poem should be printed to the console.
-#The poem should be printed to the console.       
