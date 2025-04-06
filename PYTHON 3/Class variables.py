@@ -6,6 +6,3 @@ drummer = Musician()
 guitarist = Musician()
 
 print("ohhhhh", guitarist.title) 
-
-
-# prints "Rockstar"
