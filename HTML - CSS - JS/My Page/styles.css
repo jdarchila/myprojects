@@ -61,7 +61,7 @@ header h1{
   border-bottom: 1px solid #ccc; 
   font-size: 14px;
   max-width: 700px; /* or any width you want */
-  margin: 0 auto;   /* center it horizontally */
+  margin: 20px auto 0 auto;   /* center it horizontally */
 }
 
 /* PSYCHOLOGIST AND COACH PAGE */
