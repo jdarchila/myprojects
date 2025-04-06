@@ -10,7 +10,6 @@
   <header>
     <div>
       <h1>Juan David Archila León</h1>
-
     </div>
   </header>
   <div class="nav-bar">
@@ -24,10 +23,30 @@
     <h2>Me as an author...</h2>
     <p>I've been writing for as long as I can remember—starting with stories in the margins of my school notebooks and poems that never really rhymed but always meant something to me. Over the years, writing became more than just a hobby; it turned into the way I make sense of the world. I write poems and short stories to explore the space between silence and sound—the small moments, the big emotions, and the thoughts we all carry but don’t always say out loud.</p>
   </div>
+  
+  <!-- Main section  -->
+
+  <main class="poem-viewer">
+    <h2 class="poem-title" id="poem-title">Loading...</h2>
+    <pre class="poem-text" id="poem-text"></pre>
+
+    <div class="poem-controls">
+      <button onclick="previousPoem()">⬅️ Prev</button>
+      <button onclick="nextPoem()">Next ➡️</button>
+    </div>
+  </main>
+
+
+  <!-- Footer  -->
+
   <footer>
     <div class="footer">
       © JUAN DAVID ARCHILA LEÓN 2025
     </div>
   </footer>
+
+ <!-- ConnectS JS file -->
+ <script src="author.js"></script>
+
 </body>
 </html>
