@@ -52,17 +52,6 @@ header h1{
   border-radius: 10px;
 }
 
-/* FOOTER */
-
-.footer {
-  text-align: center;
-  padding: 20px 0; 
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc; 
-  font-size: 14px;
-  max-width: 700px; /* or any width you want */
-  margin: 20px auto 0 auto;   /* center it horizontally */
-}
 
 /* PSYCHOLOGIST AND COACH PAGE */
 
@@ -101,6 +90,7 @@ header h1{
   color: rgb(97, 97, 97);
   margin: 10 auto;
 }
+
 
 /* MUSICIAN PAGE */
 
@@ -142,6 +132,14 @@ header h1{
   margin: 0 auto;
 }
 
+.githubpage {
+  display: block;
+  text-align: center;
+  margin: 30px auto;
+  font-weight: bold;
+  text-decoration: none;
+  
+}
 
 /*************** POEM VIEWER ***************/
 .poem-viewer {
@@ -169,9 +167,7 @@ header h1{
   padding: 30px;
   margin-bottom: 20px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  
-  /* NEW: Fixed height + scroll */
-  height: 250px;
+  height: 375px; /* NEW: Fixed height + scroll */
   overflow-y: auto;
 }
 
@@ -194,4 +190,41 @@ header h1{
 
 .poem-controls button:hover {
   background-color: #f0f0f0;
+}
+
+/* SOCIALS */
+
+.socials{
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px 0;
+  max-width: 700px; /* or any width you want */
+  margin: 0 auto;   /* center it horizontally */
+}
+
+.socials a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.socials a:hover {
+  text-decoration: underline;
+  color: #6c6c6c;
+}
+
+
+/* FOOTER */
+
+.footer {
+  text-align: center;
+  padding: 20px 0; 
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; 
+  font-size: 14px;
+  max-width: 700px; /* or any width you want */
+  margin: 10px auto 0 auto;   /* center it horizontally */
 }
