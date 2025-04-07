@@ -12,12 +12,7 @@ header h1{
   margin-bottom: 10px;
 }
 
-.description {
-  text-align: center;
-  font-size: 20px;
-  color: rgb(120, 119, 119);
-  margin-top: 0; /* eliminate extra space above the subtitle */
-}
+/* NAV BAR */
 
 .nav-bar {
   display: flex;
