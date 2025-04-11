@@ -1,0 +1,45 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f0f8ff;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#instructions {
+  font-size: 2.2em;
+  margin: 0px 0;
+}
+
+#figure-name {
+  font-size: 1.8em;
+  margin: 50px 0 20px 0;
+}
+
+#figure-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+svg {
+  width: 380px;
+  height: 380px;
+}
+
+.segment {
+  fill: #e0e0e0;
+  stroke: #333;
+  stroke-width: 2;
+  cursor: pointer;
+  transition: fill 0.3s;
+}
+
+.segment.clicked {
+  fill: #4CAF50;
+}
