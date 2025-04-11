@@ -1,37 +1,44 @@
+const startBtn = document.getElementById("start-button");
+const backBtn = document.getElementById("back-button");
+const musicToggle = document.getElementById("music-toggle");
+const startScreen = document.getElementById("start-screen");
+const gameScreen = document.getElementById("game-screen");
+const bgMusic = document.getElementById("bg-music");
+
 const container = document.getElementById("figure-container");
 const figureName = document.getElementById("figure-name");
+const message = document.getElementById("message");
+const scoreDisplay = document.getElementById("score");
+
+let score = 0;
 const clickSound = new Audio("click2.mp3");
 
-// 10 figuras diferentes divididas
 const figures = [
+  // Figuras personalizadas con layout
   {
-    name: "TRIÁNGULO",
-    segments: 3,
-    svg: `
-      <svg viewBox="0 0 200 200">
-        <polygon class="segment" points="100,10 10,180 100,100" />
-        <polygon class="segment" points="100,10 190,180 100,100" />
-        <polygon class="segment" points="10,180 190,180 100,100" />
-      </svg>
-    `
+    name: "FIGURA T",
+    type: "custom",
+    layout: [
+      [1, 1, 1],
+      [0, 1, 0],
+      [0, 1, 0]
+    ]
   },
   {
-    name: "CUADRADO",
-    segments: 4,
-    svg: `
-      <svg viewBox="0 0 200 200">
-        <rect class="segment" x="0" y="0" width="100" height="100"/>
-        <rect class="segment" x="100" y="0" width="100" height="100"/>
-        <rect class="segment" x="0" y="100" width="100" height="100"/>
-        <rect class="segment" x="100" y="100" width="100" height="100"/>
-      </svg>
-    `
+    name: "CUADRADO GRANDE",
+    type: "custom",
+    layout: [
+      [1, 1],
+      [1, 1]
+    ]
   },
+  // Figura con SVG: CÍRCULO
   {
     name: "CÍRCULO",
+    type: "svg",
     segments: 4,
     svg: `
-      <svg viewBox="0 0 200 200">
+      <svg viewBox="0 0 200 200" width="300" height="300">
         <path class="segment" d="M100,100 L100,0 A100,100 0 0,1 200,100 Z"/>
         <path class="segment" d="M100,100 L200,100 A100,100 0 0,1 100,200 Z"/>
         <path class="segment" d="M100,100 L100,200 A100,100 0 0,1 0,100 Z"/>
@@ -39,11 +46,26 @@ const figures = [
       </svg>
     `
   },
+  // Figura con SVG: TRIÁNGULO
+  {
+    name: "TRIÁNGULO",
+    type: "svg",
+    segments: 3,
+    svg: `
+      <svg viewBox="0 0 200 200" width="300" height="300">
+        <polygon class="segment" points="100,10 10,180 100,100" />
+        <polygon class="segment" points="100,10 190,180 100,100" />
+        <polygon class="segment" points="10,180 190,180 100,100" />
+      </svg>
+    `
+  },
+  // Figura con SVG: ESTRELLA
   {
     name: "ESTRELLA",
+    type: "svg",
     segments: 5,
     svg: `
-      <svg viewBox="0 0 200 200">
+      <svg viewBox="0 0 200 200" width="300" height="300">
         <polygon class="segment" points="100,10 120,70 100,100"/>
         <polygon class="segment" points="100,10 80,70 100,100"/>
         <polygon class="segment" points="80,70 20,75 100,100"/>
@@ -51,111 +73,121 @@ const figures = [
         <polygon class="segment" points="20,75 100,190 180,75"/>
       </svg>
     `
-  },
-  {
-    name: "RECTÁNGULO",
-    segments: 4,
-    svg: `
-      <svg viewBox="0 0 400 200">
-        <rect class="segment" x="0" y="0" width="100" height="200"/>
-        <rect class="segment" x="100" y="0" width="100" height="200"/>
-        <rect class="segment" x="200" y="0" width="100" height="200"/>
-        <rect class="segment" x="300" y="0" width="100" height="200"/>
-      </svg>
-    `
-  },
-  {
-    name: "ROMBO",
-    segments: 4,
-    svg: `
-      <svg viewBox="0 0 200 200">
-        <polygon class="segment" points="100,0 150,100 100,100"/>
-        <polygon class="segment" points="100,0 50,100 100,100"/>
-        <polygon class="segment" points="50,100 100,200 100,100"/>
-        <polygon class="segment" points="150,100 100,200 100,100"/>
-      </svg>
-    `
-  },
-  {
-    name: "PENTÁGONO",
-    segments: 5,
-    svg: `
-      <svg viewBox="0 0 200 200">
-        <polygon class="segment" points="100,0 150,70 100,100"/>
-        <polygon class="segment" points="100,0 50,70 100,100"/>
-        <polygon class="segment" points="50,70 30,150 100,100"/>
-        <polygon class="segment" points="150,70 170,150 100,100"/>
-        <polygon class="segment" points="30,150 170,150 100,100"/>
-      </svg>
-    `
-  },
-  {
-    name: "HEXÁGONO",
-    segments: 6,
-    svg: `
-      <svg viewBox="0 0 200 200">
-        <polygon class="segment" points="100,0 140,30 100,100"/>
-        <polygon class="segment" points="140,30 170,80 100,100"/>
-        <polygon class="segment" points="170,80 140,130 100,100"/>
-        <polygon class="segment" points="140,130 60,130 100,100"/>
-        <polygon class="segment" points="60,130 30,80 100,100"/>
-        <polygon class="segment" points="30,80 60,30 100,100"/>
-      </svg>
-    `
-  },
-  {
-    name: "TRAPEZOIDE",
-    segments: 4,
-    svg: `
-      <svg viewBox="0 0 200 200">
-        <polygon class="segment" points="60,50 140,50 130,100 70,100"/>
-        <polygon class="segment" points="70,100 130,100 120,150 80,150"/>
-        <polygon class="segment" points="60,50 70,100 80,150 40,100"/>
-        <polygon class="segment" points="140,50 130,100 120,150 160,100"/>
-      </svg>
-    `
-  },
-  {
-    name: "CORAZÓN",
-    segments: 3,
-    svg: `
-      <svg viewBox="0 0 200 200">
-        <path class="segment" d="M100,30 A30,30 0 0,1 130,60 L100,100 Z"/>
-        <path class="segment" d="M100,30 A30,30 0 0,0 70,60 L100,100 Z"/>
-        <path class="segment" d="M70,60 Q100,150 130,60 L100,100 Z"/>
-      </svg>
-    `
   }
 ];
 
 let currentFigureIndex = 0;
 
-function createFigure() {
-  container.innerHTML = '';
-  const figure = figures[currentFigureIndex];
-  figureName.textContent = figure.name;
-  let segmentsClicked = 0;
+startBtn.addEventListener("click", () => {
+  startScreen.style.display = "none";
+  gameScreen.style.display = "block";
+  bgMusic.pause();
+  bgMusic.currentTime = 0;
+  createFigure();
+});
 
-  container.innerHTML = figure.svg;
+musicToggle.addEventListener("click", () => {
+  if (bgMusic.paused) {
+    bgMusic.play();
+    musicToggle.textContent = "🎵";
+  } else {
+    bgMusic.pause();
+    musicToggle.textContent = "🔇";
+  }
+});
 
-  const parts = container.querySelectorAll('.segment');
-  parts.forEach(part => {
-    part.addEventListener('click', () => {
-      if (!part.classList.contains('clicked')) {
-        part.classList.add('clicked');
-        clickSound.currentTime = 0;
-        clickSound.play();
-        segmentsClicked++;
+backBtn.addEventListener("click", () => {
+  gameScreen.style.display = "none";
+  startScreen.style.display = "flex";
+  bgMusic.play();
+  resetGame();
+});
 
-        if (segmentsClicked === figure.segments) {
-          setTimeout(() => {
-            currentFigureIndex = (currentFigureIndex + 1) % figures.length;
-            createFigure();
-          }, 800);
-        }
-      }
-    });
-  });
+function resetGame() {
+  score = 0;
+  scoreDisplay.textContent = "Puntos: 0";
+  currentFigureIndex = 0;
+  container.innerHTML = "";
+  message.textContent = "";
 }
 
-createFigure();
+function createFigure() {
+  container.innerHTML = "";
+  const figure = figures[currentFigureIndex];
+  figureName.textContent = figure.name;
+  message.textContent = "";
+
+  if (figure.type === "custom") {
+    const rows = figure.layout.length;
+    const cols = figure.layout[0].length;
+    container.style.display = "grid";
+    container.style.gridTemplateColumns = `repeat(${cols}, 100px)`;
+    container.style.gridTemplateRows = `repeat(${rows}, 100px)`;
+
+    let segmentsClicked = 0;
+    const totalSegments = figure.layout.flat().filter(n => n === 1).length;
+
+    figure.layout.forEach((row) => {
+      row.forEach((cell) => {
+        const square = document.createElement("div");
+        if (cell === 1) {
+          square.classList.add("square-part");
+          square.addEventListener("click", () => {
+            if (!square.classList.contains("clicked")) {
+              square.classList.add("clicked");
+              clickSound.currentTime = 0;
+              clickSound.play();
+              segmentsClicked++;
+              if (segmentsClicked === totalSegments) {
+                score += 10;
+                scoreDisplay.textContent = `Puntos: ${score}`;
+                showMessageAndNext();
+              }
+            }
+          });
+        } else {
+          square.style.visibility = "hidden";
+          square.style.width = "100px";
+          square.style.height = "100px";
+        }
+        container.appendChild(square);
+      });
+    });
+  }
+
+  if (figure.type === "svg") {
+    container.style.display = "block";
+    container.innerHTML = figure.svg;
+    let segmentsClicked = 0;
+    const parts = container.querySelectorAll(".segment");
+    parts.forEach(part => {
+      part.addEventListener("click", () => {
+        if (!part.classList.contains("clicked")) {
+          part.classList.add("clicked");
+          clickSound.currentTime = 0;
+          clickSound.play();
+          segmentsClicked++;
+          if (segmentsClicked === figure.segments) {
+            score += 10;
+            scoreDisplay.textContent = `Puntos: ${score}`;
+            showMessageAndNext();
+          }
+        }
+      });
+    });
+  }
+}
+
+function showMessageAndNext() {
+  message.textContent = "¡Muy bien! La siguiente figura se cargará en...";
+  let count = 3;
+  const countdown = setInterval(() => {
+    message.textContent = `¡Muy bien! La siguiente figura se cargará en... ${count}`;
+    count--;
+    if (count < 0) {
+      clearInterval(countdown);
+      currentFigureIndex = (currentFigureIndex + 1) % figures.length;
+      createFigure();
+    }
+  }, 800);
+}
