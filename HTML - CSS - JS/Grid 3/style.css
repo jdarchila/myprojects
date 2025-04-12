@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Logo 1 parte, menú 2 partes */
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas: 
+    "logo menu"
+    "foto foto"
+    "producto1 producto2"
+    "footer footer";
+  gap: 10px;
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Áreas del layout */
+.logo {
+  grid-area: logo;
+  background-color: #d62828;
+  color: white;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.menu {
+  grid-area: menu;
+  background-color: #f77f00;
+  color: white;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.foto {
+  grid-area: foto;
+  background-color: #eae2b7;
+  text-align: center;
+  padding: 60px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.producto {
+  background-color: #003049;
+  color: white;
+  padding: 40px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.producto1 {
+  grid-area: producto1;
+}
+
+.producto2 {
+  grid-area: producto2;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #2a2a2a;
+  color: white;
+  text-align: center;
+  padding: 30px;
+}

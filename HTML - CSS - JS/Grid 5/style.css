@@ -1,0 +1,156 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+
+}
+
+/* CONTENEDOR GRID PRINCIPAL */
+.grid-container {
+  display: grid;
+  background-color: hsl(253, 87%, 33%);
+
+  /* Aquí definimos la estructura general: 2 columnas y varias filas */
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: 
+    "logo nav"
+    "hero hero"
+    "producto1 producto2"
+    "testimonios testimonios"
+    "contacto contacto"
+    "galeria galeria"
+    "footer footer";
+
+  gap: 15px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  background-color: #1ac211;
+}
+
+/* Áreas nombradas */
+.logo {
+  grid-area: logo;
+  background: #003049;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.nav {
+  grid-area: nav;
+  background: #d62828;
+  display: flex;
+  align-items: center;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  padding-left: 20px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Hero (imagen destacada) */
+.hero {
+  grid-area: hero;
+  background: #eae2b7;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero img {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/* Productos */
+.producto {
+  padding: 30px;
+  background: #f77f00;
+  color: rgb(0, 0, 0);
+  border-radius: 8px;
+  text-align: center;
+}
+.producto1 { grid-area: producto1; }
+.producto2 { grid-area: producto2; }
+
+/* Testimonios */
+.testimonios {
+  grid-area: testimonios;
+  background: #fcf6bd;
+  padding: 30px;
+  text-align: center;
+}
+.testimonios blockquote {
+  font-style: italic;
+  margin: 15px 0;
+}
+
+/* Contacto */
+.contacto {
+  grid-area: contacto;
+  background: #c9cba3;
+  padding: 30px;
+}
+.contacto form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.contacto input,
+.contacto textarea {
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+.contacto button {
+  padding: 10px;
+  background: #003049;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Galería */
+.galeria {
+  grid-area: galeria;
+  background: #b5ead7;
+  padding: 30px;
+}
+.imagenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.imagenes img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Footer */
+.footer {
+  grid-area: footer;
+  background: #2a2a2a;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}

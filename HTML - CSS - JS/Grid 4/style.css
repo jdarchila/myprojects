@@ -1,0 +1,103 @@
+/* Reinicio de márgenes por defecto */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo general del body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Contenedor principal con display grid */
+.grid-container {
+  display: grid; /* activa CSS Grid */
+  grid-template-columns: 1fr 2fr; /* columna 1 (logo) pequeña, columna 2 (menú) más grande */
+  grid-template-rows: auto auto auto auto; /* 4 filas automáticas para header, hero, productos, y footer */
+  grid-template-areas: 
+    "logo nav"
+    "hero hero"
+    "producto1 producto2"
+    "footer footer"; /* define visualmente las zonas de cada parte */
+  gap: 15px; /* espacio entre filas y columnas */
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  background-color: #fff;
+}
+
+/* Área: logo */
+.logo {
+  grid-area: logo; /* usa la zona definida como "logo" */
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px;
+  background-color: #003049;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+/* Área: navegación */
+.nav {
+  grid-area: nav; /* zona del menú */
+  background-color: #d62828;
+  display: flex;
+  align-items: center;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  padding-left: 20px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+/* Área: hero */
+.hero {
+  grid-area: hero; /* ocupa las 2 columnas */
+  background-color: #eae2b7;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero img {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/* Área: productos */
+.producto {
+  padding: 30px;
+  background-color: #f77f00;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.producto1 {
+  grid-area: producto1; /* zona izquierda */
+}
+
+.producto2 {
+  grid-area: producto2; /* zona derecha */
+}
+
+/* Área: pie de página */
+.footer {
+  grid-area: footer; /* ocupa las 2 columnas */
+  text-align: center;
+  padding: 25px;
+  background-color: #2a2a2a;
+  color: white;
+  font-size: 14px;
+}
