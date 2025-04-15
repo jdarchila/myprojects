@@ -1,0 +1,150 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Contenedor principal */
+.grid-container {
+  display: grid;
+  grid-template-areas: 
+    "header"
+    "hero"
+    "producto1"
+    "producto2"
+    "testimonios"
+    "contacto"
+    "galeria"
+    "footer";
+  gap: 50px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  background-color: #fff;
+}
+
+/* Header: logo + nav usando flex */
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #003049;
+  padding: 20px;
+}
+
+/* Logo */
+.logo {
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/* Menú */
+.nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Hero */
+.hero {
+  grid-area: hero;
+  background: #eae2b7;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero img {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/* Productos */
+.producto {
+  padding: 30px;
+  background: #f77f00;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+}
+.producto1 { grid-area: producto1; }
+.producto2 { grid-area: producto2; }
+
+/* Testimonios */
+.testimonios {
+  grid-area: testimonios;
+  background: #fcf6bd;
+  padding: 30px;
+  text-align: center;
+}
+.testimonios blockquote {
+  font-style: italic;
+  margin: 15px 0;
+}
+
+/* Contacto */
+.contacto {
+  grid-area: contacto;
+  background: #c9cba3;
+  padding: 30px;
+}
+.contacto form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.contacto input,
+.contacto textarea {
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+.contacto button {
+  padding: 10px;
+  background: #003049;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Galería */
+.galeria {
+  grid-area: galeria;
+  background: #b5ead7;
+  padding: 30px;
+}
+.imagenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.imagenes img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Footer */
+.footer {
+  grid-area: footer;
+  background: #2a2a2a;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}

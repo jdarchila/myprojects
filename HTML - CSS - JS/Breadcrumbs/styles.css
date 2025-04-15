@@ -1,0 +1,51 @@
+/* Estilos generales para el cuerpo de la página */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna y legible */
+  background: #f9f9f9; /* Color de fondo claro */
+  padding: 40px; /* Espacio interior para alejar el contenido del borde */
+}
+
+/* Estilos para la barra breadcrumb */
+.breadcrumb {
+  display: flex; /* Organiza los elementos en una línea horizontal */
+  align-items: center; /* Centra verticalmente los ítems */
+  flex-wrap: wrap; /* Permite que los ítems salten a la siguiente línea si no caben */
+  gap: 8px; /* Espacio entre cada ítem */
+  font-size: 15px; /* Tamaño de fuente */
+  background: #fff; /* Fondo blanco para resaltar el breadcrumb */
+  padding: 12px 16px; /* Espacio interior arriba/abajo y derecha/izquierda */
+  border-radius: 8px; /* Bordes redondeados para suavizar el diseño */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Sombra sutil para darle profundidad */
+}
+
+/* Estilos para los enlaces dentro del breadcrumb */
+.breadcrumb a {
+  display: flex; /* Hace que el icono y el texto estén en línea */
+  align-items: center; /* Centra verticalmente icono y texto */
+  gap: 5px; /* Espacio entre el icono y el texto */
+  text-decoration: none; /* Quita el subrayado predeterminado */
+  color: #007bff; /* Color azul típico de enlaces */
+  transition: all 0.3s ease; /* Transición suave al hacer hover */
+}
+
+/* Efecto hover en los enlaces */
+.breadcrumb a:hover {
+  color: #0056b3; /* Cambia el tono de azul al pasar el mouse */
+  transform: scale(1.05); /* Agranda levemente el enlace para dar feedback visual */
+}
+
+/* Estilos para los separadores (flechas) */
+.breadcrumb span {
+  color: #999; /* Color gris para no resaltar tanto como los enlaces */
+  display: flex; /* Permite alinear icono con otros elementos */
+  align-items: center; /* Centra verticalmente */
+}
+
+/* Estilo especial para el último elemento que representa la página actual */
+.breadcrumb .current {
+  display: flex; /* Para alinear ícono y texto */
+  align-items: center; /* Centrado vertical */
+  gap: 5px; /* Espacio entre ícono y texto */
+  font-weight: bold; /* Texto más grueso */
+  color: #333; /* Color oscuro para diferenciarlo como "actual" */
+}

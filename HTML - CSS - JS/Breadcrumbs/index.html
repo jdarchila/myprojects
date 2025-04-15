@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es"> <!-- Define el tipo de documento y el idioma principal de la página -->
+<head>
+  <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+  <title>Breadcrumb Mejorado</title> <!-- Título que aparece en la pestaña del navegador -->
+  
+  <!-- Vincula el archivo CSS externo -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Carga la librería de íconos Font Awesome desde CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Contenedor de la barra de navegación tipo breadcrumb -->
+  <nav class="breadcrumb">
+
+    <!-- Primer enlace: icono de casa + texto -->
+    <a href="#"><i class="fas fa-house"></i> Inicio</a>
+
+    <!-- Separador en forma de flecha -->
+    <span><i class="fas fa-chevron-right"></i></span>
+
+    <!-- Segundo enlace: icono de carpeta + texto -->
+    <a href="#"><i class="fas fa-folder"></i> Categoría</a>
+
+    <!-- Otro separador -->
+    <span><i class="fas fa-chevron-right"></i></span>
+
+    <!-- Tercer enlace: icono de carpeta abierta + texto -->
+    <a href="#"><i class="fas fa-folder-open"></i> Subcategoría</a>
+
+    <!-- Otro separador -->
+    <span><i class="fas fa-chevron-right"></i></span>
+
+    <!-- Texto final, no clicable, representa la página actual -->
+    <span class="current"><i class="fas fa-file-alt"></i> Página actual</span>
+
+  </nav>
+
+</body>
+</html>
