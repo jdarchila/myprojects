@@ -1,7 +1,20 @@
 # todo_app.py
 
-# Start with an empty list of tasks
-tasks = []
+FILENAME = "tasks.txt"
+
+def load_tasks():
+    try:
+        with open(FILENAME, "r") as file:
+            return [line.strip() for line in file.readlines()]
+    except FileNotFoundError:
+        return []
+
+def save_tasks():
+    with open(FILENAME, "w") as file:
+        for task in tasks:
+            file.write(task + "\n")
+
+tasks = load_tasks()
 
 while True:
     print("\n--- TO-DO LIST MENU ---")
@@ -13,13 +26,40 @@ while True:
     choice = input("Choose an option (1-4): ")
 
     if choice == "1":
-        print("You chose to add a task.")
+        new_task = input("Enter your task: ")
+        tasks.append(new_task)
+        save_tasks()  # ✅ <--- this is what was missing!
+        print(f"Task '{new_task}' added successfully.")
+
     elif choice == "2":
-        print("You chose to view tasks.")
+        if not tasks:
+            print("\nYour to-do list is empty.")
+        else:
+            print("\nYour Tasks:")
+            for index, task in enumerate(tasks, start=1):
+                print(f"{index}. {task}")
+
     elif choice == "3":
-        print("You chose to delete a task.")
+        if not tasks:
+            print("Nothing to delete. Your to-do list is empty.")
+        else:
+            print("\nWhich task do you want to delete?")
+            for index, task in enumerate(tasks, start=1):
+                print(f"{index}. {task}")
+            try:
+                task_num = int(input("Enter task number: "))
+                if 1 <= task_num <= len(tasks):
+                    removed = tasks.pop(task_num - 1)
+                    save_tasks()  # ✅ <--- also missing!
+                    print(f"Task '{removed}' deleted.")
+                else:
+                    print("Invalid task number.")
+            except ValueError:
+                print("Please enter a valid number.")
+
     elif choice == "4":
         print("Goodbye!")
         break
+
     else:
         print("Invalid option. Please enter a number from 1 to 4.")
